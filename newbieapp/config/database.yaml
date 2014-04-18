@@ -1,0 +1,15 @@
+---
+mysql_main:
+  db: "newbie"
+  host: "localhost"
+  username: "root"
+  password: ""
+  port: 3306
+  socket: "/var/lib/mysql/mysql.sock"
+mysql_echo:
+  db: "newbie_echo"
+  host: "localhost"
+  username: "root"
+  password: ""
+  port: 3306
+  socket: "/var/lib/mysql/mysql.sock"

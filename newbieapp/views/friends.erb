@@ -1,0 +1,56 @@
+<h3>friends</h3>
+
+<h5>チェック中の友人</h5>
+<% if @checking.none? %>
+なし
+<% else %>
+<table class="table">
+<tr>
+  <td>username</td>
+  <td>last_login</td>
+  <td></td>
+</tr>
+<% @checking.each do |friend| %>
+<tr>
+  <td><a href="/friends/<%= friend["username"] %>"><%= friend["username"] %></a></td>
+  <td><%= friend['last_access'] %></td>
+  <td>
+    <form action="/friends/<%= friend["username"] %>" method="post">
+      <input type="hidden" name="token" value="<%= session['token'] %>" />
+      <input type="hidden" name="from_id" value=<%= session['id'] %> />
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" class="btn btn-default" value="チェック解除" />
+    </form>
+  </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+<h5>チェックされている友人</h5>
+<% if @checked.none? %>
+なし
+<% else %>
+<table class="table">
+<tr>
+  <td>username</td>
+  <td>last_login</td>
+  <td></td>
+</tr>
+<% @checked.each do |friend| %>
+<tr>
+  <td><a href="/friends/<%= friend["username"] %>"><%= friend["username"] %></a></td>
+  <td><%= friend['last_access'] %></td>
+  <td>
+    <% unless friend["is_checking"] %>
+    <form action="/friends/<%= friend["username"] %>" method="post">
+      <input type="hidden" name="token" value="<%= session['token'] %>" />
+      <input type="hidden" name="from_id" value=<%= session['id'] %> />
+      <input type="submit" class="btn btn-default" value="チェック" />
+    </form>
+    <% end %>
+  </td>
+</tr>
+<% end %>
+</table>
+<% end %>

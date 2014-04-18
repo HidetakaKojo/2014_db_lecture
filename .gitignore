@@ -1,0 +1,5 @@
+/newbieapp/vendor/
+/newbieapp/.bundle/
+/newbieapp/tmp/
+/newbieapp/db/
+/newbieapp/pids/unicorn.pid

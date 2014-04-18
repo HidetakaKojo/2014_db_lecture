@@ -1,0 +1,41 @@
+<h3>friend</h3>
+
+<table class="table">
+<tr>
+  <td>username</td>
+  <td><%= @friend["username"] %></td>
+</tr>
+<tr>
+  <td>profile</td>
+  <td><%=hbr @friend["profile"] %></td>
+</tr>
+<tr>
+  <td>status</td>
+  <td>
+  <% if @is_checking and @is_checked %>
+    友人
+  <% elsif @is_checking %>
+    チェック中
+  <% elsif @is_checked %>
+    チェックされている
+  <% else %>
+    <form action="/friends/<%= @friend["username"] %>" method="post">
+      <input type="hidden" name="token" value="<%= session['token'] %>" />
+      <input type="hidden" name="from_id" value=<%= session['id'] %> />
+      <input type="submit" class="btn btn-default" value="チェック" />
+    </form>
+  <% end %>
+  </td>
+</tr>
+</table>
+
+<h3>tweets</h3>
+
+<table class="table table-striped">
+<% @echos.each do |echo| %>
+<tr>
+  <td><%= echo["created_at"] %></td>
+  <td><%=hbr echo["body"] %></td>
+</tr>
+<% end %>
+</table>

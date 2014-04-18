@@ -1,0 +1,30 @@
+<form action="/echos" method="post">
+  <input type="hidden" name="token" value="<%= session['token'] %>" />
+  <textarea class="form-control" name="body" rows="3"></textarea>
+  <input type="submit" class="btn btn-default" value="tweet" />
+</form>(140文字)
+
+<h3>feeds</h3>
+<table class="table table-striped">
+<% @echos.each do |echo| %>
+<tr>
+  <td><%= echo["username"] %></td>
+  <td><%= echo["created_at"] %></td>
+  <td><%=hbr echo["body"] %></td>
+  <td>
+  <% if echo["user_id"] == session["id"] %>
+  <form action="/echos" method="post">
+    <input type="hidden" name="token" value="<%= session["token"] %>" />
+    <input type="hidden" name="id" value="<%= echo["id"] %>" />
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" class="btn btn-default" value="x" />
+  </form>
+  <% end %>
+  </td>
+</tr>
+<% end %>
+</table>
+<% if @page > 1 %>
+<a href="/?page=<%= @page - 1 %>">prev&lt;&lt;</a>&nbsp;&nbsp;
+<% end %>
+<a href="/?page=<%= @page + 1 %>" class="next">&gt;&gt;next</a>
