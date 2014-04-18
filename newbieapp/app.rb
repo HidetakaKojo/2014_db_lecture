@@ -151,7 +151,7 @@ class NewbieApp < Sinatra::Base
     end
     users.push session["id"]
     @echos = mysql_echo.xquery("select * from echos where user_id IN (?) order by created_at desc limit #{offset}, #{row_count}", users).each do |echo|
-      echo["username"] = get_username(echo["user_id"])["username"]
+      echo["username"] = get_username(echo["user_id"])
     end
     erb :index
   end
