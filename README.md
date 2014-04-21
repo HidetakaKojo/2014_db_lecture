@@ -1,10 +1,11 @@
-### ���󥹥��󥹵�ư
+### インスタンス起動
 
-+ Region��Tokyo�ˤʤäƤ�������ǧ
-+ EC2��AMI�ڥ���˰�ư
-+ search�ξ���Public images���ѹ�
-  + ami-73265d72 �򸡺�
-+ �����١�����launch
-  + m1.medium������
-  + ��ʬ�ǳ�������ssh�Ǥ���褦��
-  + �����������˽Ф�ɬ�פϤʤ����ɡ��饤�֥����ɲä������ɬ��
++ RegionがTokyoになっている事を確認
++ EC2のAMIペインに移動
++ searchの条件をPublic imagesに変更
+  + ami-11f08b10 を検索
++ それをベースにlaunch
+  + m1.mediumを選択
+  + 自分で外部からsshできるように
+  + いちお外部に出る必要はないけど、ライブラリを追加する場合は必要
+
