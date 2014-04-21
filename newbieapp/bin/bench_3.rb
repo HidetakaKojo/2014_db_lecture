@@ -69,5 +69,5 @@ puts "[INFO] elapsed time: #{elapsed_sec}"
 if elapsed_sec > Limit_time
   puts Rainbow("[FAILED] over #{Limit_time} secs").red
 else
-  puts Rainbow("[SUECCESS] executed within #{Limit_time} secs").green
+  puts Rainbow("[SUCCESS] executed within #{Limit_time} secs").green
 end
