@@ -9,7 +9,7 @@ shell> bundle install --path=vendor/bundle
 ##### start development environment
 
 ```
-shell> bundle exec shutgun -o 0.0.0.0
+shell> bundle exec shotgun -o 0.0.0.0
 ```
 
 ##### start production environemnt

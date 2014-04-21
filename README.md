@@ -1,5 +1,6 @@
-### インスタンスンボ起動
+### インスタンス起動
 
++ RegionがTokyoになっている事を確認
 + EC2のAMIペインに移動
 + searchの条件をPublic imagesに変更
   + ami-73265d72 を検索
